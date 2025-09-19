@@ -15,29 +15,52 @@ public class HelloWorld {
 		//TODO: Implement Program Requirements Here
 		//TODO: Implement Program Requirements Here
 		Scanner scanner = new Scanner(System.in);
-
-		System.out.println("Welcome!  You have the following options: \n1. Binary to Decimal \n2. Decimal to Binary \nWhich type of conversion would you like to perform?");
-    	int type = scanner.nextInt();
+		boolean e = true;
+		while(e){
+		System.out.println("\nWelcome!\n\nYou have the following options: \n1. Binary to Decimal \n2. Decimal to Binary \n");
+    	int type = 0;
 		while(type!=1 && type!=2){
 			System.out.println("Which type of conversion would you like to perform?");
 			type = scanner.nextInt();
-		}
-		
-		if(type == 1){
-			System.out.println("What is the binary number?");	
-			String name = scanner.nextLine();
-			
-		}
+		}//end conversion type loop
+		if(type==1){
+			System.out.println("\nWhat is the binary number?");
+			scanner.nextLine();
+			int ee = convertBinDec(scanner.nextLine());
+			System.out.println("\nThe decimal equivilant is: " +ee);
+		}//runs if user chooses binary to decimal
+		else{
+			System.out.println("\nWhat is the decimal number?");
+			String ee = convertDecBin(scanner.nextInt());
+			System.out.println("\nThe binary equivalent is: "+ee);
+		}//runs if user chooses decimal to binary
+		System.out.println("\nDo you want to convert another number?(enter 'true' or 'false')\n");
+		e = scanner.nextBoolean();
+	}//end loop if user chooses not to continue
+	scanner.close();
+	}//end main
 
-		
-		//System.out.print(name);
+	public static String convertDecBin(int d){
+		String r ="";
+		while(d>0){
+			r = d%2 + r;
+			d/=2;
+		}//calculates binary equivalent
+		while(r.length()<8){
+			r = "0"+r;
+		}//makes sure its 8 bits long 
+		return r;
+	}//end convertDecBin method
+	
+	public static int convertBinDec(String b){
+			int r = 0;
+			for(int med=0;med<b.length();med++){
+					if(b.substring(med, med+1).equals("1")){
+						r+=Math.pow(2, b.length()-(med+1));
+					}
 
-		scanner.close();
+			}//calculates decimal equivalent
+			return r;
+	}//end convertBinDec method
 
-
-
-
-
-	}
-
-}
+}//end class
