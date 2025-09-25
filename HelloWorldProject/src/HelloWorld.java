@@ -1,7 +1,7 @@
 /*
  * TODO: Christopher Lee
  * TODO: 9/18/25
- * TODO: Pd 6
+ * TODO: Period 6
  * TODO: Will ask the user what type of conversion they want to perform (Binary to Decimal or Decimal to Binary).  
  * If they enter a choice that is not one that is valid, ask them again until they give a valid input.
  * Ask the user for the correct input based on their choice.
